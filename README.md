@@ -18,3 +18,8 @@ https://emmauscollege.github.io/informatica/game/
 - icon <br>
         http://www.iconarchive.com/show/android-lollipop-icons-by-dtafalonso/Play-Games-icon.html
 - ...
+  stappenplan(
+  1. platte grond met speler en eindstation
+  2. bal en tegenstanders
+  3. platen voor hoogteverschil
+  4. mooi maken)
