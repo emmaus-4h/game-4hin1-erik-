@@ -31,7 +31,7 @@ var spelerY = 600; // y-positie van speler
  */
 var beweegAlles = function() {
   // speler
-
+spelerX = spelerX -1;
   // vijand
 
   // kogel
@@ -56,7 +56,7 @@ var verwerkBotsing = function() {
  */
 var tekenAlles = function() {
   // achtergrond
-
+background("green")
   // vijand
 
   // kogel
