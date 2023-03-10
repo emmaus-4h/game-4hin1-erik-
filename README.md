@@ -18,8 +18,19 @@ https://emmauscollege.github.io/informatica/game/
 - icon <br>
         http://www.iconarchive.com/show/android-lollipop-icons-by-dtafalonso/Play-Games-icon.html
 - ...
-  stappenplan(
-  1. platte grond met speler en eindstation
-  2. bal en tegenstanders
-  3. platen voor hoogteverschil
-  4. mooi maken)
+  stappenplan(MARIO MET VOETBAL
+  1.teken spelr
+  2 laat speelr bewegen
+4 teken eindstation
+  3 spel klaar als speler op eindstation is
+4. tijd toevoegen
+5 dood als tijd op
+  6 val toevoegen
+  7 decteer botsing bal en speler met berichgte in console met console.log("bal gepakt");
+  8 poas aan spel alelen klaar als je de bal hebt bij het eindstation
+
+VOLGENDE SPRINT (later verder uitwerken)
+  2. mooie achtergrond
+  3. tegenstanders
+  4. platen voor hoogteverschil
+  5. mooi maken)
