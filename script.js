@@ -20,6 +20,9 @@ const GAMEOVER = 2;
 var spelStatus = SPELEN;
 const KEY_LEFT = 37;
 const KEY_RIGHT = 39;
+const KEY_UP = 38;
+const KEY_DOWN = 40;
+const KEY_SPACE = 32;
 
 var spelerX = 600; // x-positie van speler
 var spelerY = 600; // y-positie van speler
@@ -37,6 +40,12 @@ var beweegAlles = function() {
 spelerX = spelerX -1;
   if (keyIsDown(39))
     spelerX = spelerX +1;
+  if (keyIsDown(38))
+    spelerY = spelerY -1;
+  if (keyIsDown(40))
+    spelerY = spelerY +1;
+  if (keyIsDown(32))
+    spelerY = 500
   // vijand
 
   // kogel
