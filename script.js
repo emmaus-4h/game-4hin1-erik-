@@ -27,6 +27,11 @@ const KEY_SPACE = 32;
 var spelerX = 600; // x-positie van speler
 var spelerY = 600; // y-positie van speler
 
+var spelerSpringt = false;
+var springSnelheid = 2;
+var springSnelheidStart = 6;
+var zwaartekracht = 0.22;
+
 /* ********************************************* */
 /* functies die je gebruikt in je game           */
 /* ********************************************* */
@@ -37,15 +42,25 @@ var spelerY = 600; // y-positie van speler
 var beweegAlles = function() {
   // speler
   if (keyIsDown(37))
-spelerX = spelerX -1;
+spelerX = spelerX -2;
   if (keyIsDown(39))
-    spelerX = spelerX +1;
+    spelerX = spelerX +2;
   if (keyIsDown(38))
-    spelerY = spelerY -1;
+    spelerY = spelerY -2;
   if (keyIsDown(40))
-    spelerY = spelerY +1;
-  if (keyIsDown(32))
-    spelerY = 500
+    spelerY = spelerY +2;
+  if (spelerSpringt === false && keyIsDown(32)) {
+    spelerSpringt = true;
+    springSnelheid = springSnelheidStart
+    console.log("start sprong");
+}
+if (spelerSpringt === true) {
+    spelerY = spelerY - springSnelheid;
+  springSnelheid = springSnelheid - zwaartekracht;
+}
+  if (spelerY > 610) {
+    spelerSpringt = false;
+  }
   // vijand
 
   // kogel
