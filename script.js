@@ -26,6 +26,8 @@ const KEY_SPACE = 32;
 
 var spelerX = 600; // x-positie van speler
 var spelerY = 600; // y-positie van speler
+var vijandX = 600;
+var vijandY = 500;
 
 var spelerSpringt = false;
 var springSnelheid = 2;
@@ -73,7 +75,9 @@ if (spelerSpringt === true) {
  */
 var verwerkBotsing = function() {
   // botsing speler tegen vijand
-
+if (spelerX === vijandX && spelerY - vijandY <50 && ) {
+  console.log("botsing")
+   }
   // botsing kogel tegen vijand
 
   // update punten en health
@@ -85,9 +89,11 @@ var verwerkBotsing = function() {
  */
 var tekenAlles = function() {
   // achtergrond
-background("blue")
+background("green")
   // vijand
 
+  fill("red")
+  ellipse(vijandX - 25, vijandY -25, 50, 50);
   // kogel
 
   // speler
