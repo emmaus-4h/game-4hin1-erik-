@@ -159,6 +159,7 @@ function draw() {
     fill("white")
     text("game over, druk enter voor start",100,100 )
     if (keyIsDown(13))
+      spelerX=400;
       spelStatus = SPELEN;
 
   }
