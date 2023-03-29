@@ -75,10 +75,9 @@ if (spelerSpringt === true) {
  */
 var verwerkBotsing = function() {
   // botsing speler tegen vijand
-if (spelerX === vijandX && spelerY - vijandY <50 && ) {
-  console.log("botsing")
-   }
-  // botsing kogel tegen vijand
+
+  
+  
 
   // update punten en health
 
@@ -110,6 +109,13 @@ background("green")
  * anders return false
  */
 var checkGameOver = function() {
+  if (spelerX - vijandX <50 && 
+    spelerX - vijandX >-50 &&
+    spelerY - vijandY <50 &&
+    spelerY - vijandY >-50) {
+  console.log("Botsing");
+    return true;
+  }
   // check of HP 0 is , of tijd op is, of ...
   return false;
 };
@@ -144,9 +150,16 @@ function draw() {
     if (checkGameOver()) {
       spelStatus = GAMEOVER;
     }
+    console.log("spelen")
   }
   if (spelStatus === GAMEOVER) {
     // teken game-over scherm
+    console.log("Game-over")
+    textSize(50);
+    fill("white")
+    text("game over, druk enter voor start",100,100 )
+    if (keyIsDown(13))
+      spelStatus = SPELEN;
 
   }
 }
