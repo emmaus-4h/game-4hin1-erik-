@@ -1,4 +1,5 @@
 /* Game opdracht
+
    Informatica - Emmauscollege Rotterdam
    Template voor een game in JavaScript met de p5 library
 
@@ -28,6 +29,9 @@ var spelerX = 600; // x-positie van speler
 var spelerY = 600; // y-positie van speler
 var vijandX = 600;
 var vijandY = 500;
+
+var kogelX= 400;
+var kogelY= 400;
 
 var spelerSpringt = false;
 var springSnelheid = 2;
@@ -94,7 +98,8 @@ background("green")
   fill("red")
   ellipse(vijandX - 25, vijandY -25, 50, 50);
   // kogel
-
+fill("black")
+  ellipse(kogelX,kogelY,50,50)
   // speler
   fill("white");
   ellipse(spelerX - 25, spelerY - 25, 50, 50);
@@ -159,8 +164,11 @@ function draw() {
     fill("white")
     text("game over, druk enter voor start",100,100 )
     if (keyIsDown(13))
-      spelerX=400;
+      spelerY=600;
+    
+    
       spelStatus = SPELEN;
 
   }
+  
 }
