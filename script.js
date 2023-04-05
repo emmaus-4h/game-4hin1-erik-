@@ -1,4 +1,6 @@
+
 /* Game opdracht
+
 
    Informatica - Emmauscollege Rotterdam
    Template voor een game in JavaScript met de p5 library
@@ -29,7 +31,8 @@ var spelerX = 600; // x-positie van speler
 var spelerY = 600; // y-positie van speler
 var vijandX = 600;
 var vijandY = 500;
-
+var img1;           //plaatje//
+var img2;
 var kogelX= 400;
 var kogelY= 400;
 
@@ -93,13 +96,13 @@ var verwerkBotsing = function() {
 var tekenAlles = function() {
   // achtergrond
 background("green")
-  // vijand
+  // vijand//
+  image(img1, vijandX - 60, vijandY - 100, 110, 110);
 
-  fill("red")
-  ellipse(vijandX - 25, vijandY -25, 50, 50);
   // kogel
 fill("black")
-  ellipse(kogelX,kogelY,50,50)
+
+    image(img2, kogelX - 25, kogelY - 25, 50, 50)
   // speler
   fill("white");
   ellipse(spelerX - 25, spelerY - 25, 50, 50);
@@ -125,10 +128,12 @@ var checkGameOver = function() {
   return false;
 };
 
-/* ********************************************* */
-/* setup() en draw() functies / hoofdprogramma   */
-/* ********************************************* */
-
+//preload//
+//we laden hier de plaatjes//
+function preload() {
+  img1 = loadImage('vandijk.png');
+  img2 = loadImage('voetbal.webp')
+}
 /**
  * setup
  * de code in deze functie wordt één keer uitgevoerd door
