@@ -35,6 +35,7 @@ var img1;           //plaatje//
 var img2;
 var kogelX= 400;
 var kogelY= 400;
+var kogelVliegt = false;
 
 var spelerSpringt = false;
 var springSnelheid = 2;
@@ -103,6 +104,20 @@ background("green")
 fill("black")
 
     image(img2, kogelX - 25, kogelY - 25, 50, 50)
+   
+   if (kogelVliegt === false && 
+     keyIsDown(13)) {
+    kogelVliegt=true;
+    kogelX=spelerX;
+    kogelY=spelerY;
+  }
+  if (kogelVliegt === true) {
+  kogelY = kogelY-1;
+ }
+if (kogelVliegt === true &&
+  kogelY < 0) {
+  kogelVliegt = false;
+  }
   // speler
   fill("white");
   ellipse(spelerX - 25, spelerY - 25, 50, 50);
