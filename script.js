@@ -33,6 +33,7 @@ var vijandX = 600;
 var vijandY = 500;
 var img1;           //plaatje//
 var img2;
+var img3;
 var kogelX= 400;
 var kogelY= 400;
 var kogelVliegt = false;
@@ -40,7 +41,7 @@ var kogelVliegt = false;
 var spelerSpringt = false;
 var springSnelheid = 2;
 var springSnelheidStart = 6;
-var zwaartekracht = 0.22;
+var zwaartekracht = 0.16;
 
 /* ********************************************* */
 /* functies die je gebruikt in je game           */
@@ -52,11 +53,11 @@ var zwaartekracht = 0.22;
 var beweegAlles = function() {
   // speler
   if (keyIsDown(37))
-spelerX = spelerX -2;
+spelerX = spelerX -3;
   if (keyIsDown(39))
-    spelerX = spelerX +2;
+    spelerX = spelerX +3;
   if (keyIsDown(38))
-    spelerY = spelerY -2;
+    spelerY = spelerY -0;
   if (keyIsDown(40))
     spelerY = spelerY +2;
   if (spelerSpringt === false && keyIsDown(32)) {
@@ -103,7 +104,7 @@ background("green")
   // kogel
 fill("black")
 
-    image(img2, kogelX - 25, kogelY - 25, 50, 50)
+    image(img2, kogelX - 25, kogelY - 25, 30, 30)
    
    if (kogelVliegt === false && 
      keyIsDown(13)) {
@@ -120,8 +121,9 @@ if (kogelVliegt === true &&
   }
   // speler
   fill("white");
-  ellipse(spelerX - 25, spelerY - 25, 50, 50);
   
+
+  image(img3, spelerX - 65, spelerY - 85, 120, 100)
 
   // punten en health
 
@@ -146,8 +148,9 @@ var checkGameOver = function() {
 //preload//
 //we laden hier de plaatjes//
 function preload() {
-  img1 = loadImage('vandijk.png');
+  img1 = loadImage('vandijk.png')
   img2 = loadImage('voetbal.webp')
+  img3 = loadImage('messi.png')
 }
 /**
  * setup
