@@ -34,6 +34,7 @@ var vijandY = 500;
 var img1;           //plaatje//
 var img2;
 var img3;
+var img4;
 var kogelX= 400;
 var kogelY= 400;
 var kogelVliegt = false;
@@ -59,7 +60,7 @@ spelerX = spelerX -3;
   if (keyIsDown(38))
     spelerY = spelerY -0;
   if (keyIsDown(40))
-    spelerY = spelerY +2;
+    spelerY = spelerY +0;
   if (spelerSpringt === false && keyIsDown(32)) {
     spelerSpringt = true;
     springSnelheid = springSnelheidStart
@@ -97,7 +98,8 @@ var verwerkBotsing = function() {
  */
 var tekenAlles = function() {
   // achtergrond
-background("green")
+  background('green')
+  image(img4)
   // vijand//
   image(img1, vijandX - 60, vijandY - 100, 110, 110);
 
@@ -151,6 +153,7 @@ function preload() {
   img1 = loadImage('vandijk.png')
   img2 = loadImage('voetbal.webp')
   img3 = loadImage('messi.png')
+  img4 = loadImage('stadion.jpeg')
 }
 /**
  * setup
