@@ -26,7 +26,7 @@ const KEY_RIGHT = 39;
 const KEY_UP = 38;
 const KEY_DOWN = 40;
 const KEY_SPACE = 32;
-
+const KEY_ENTER = 13
 var spelerX = 600; // x-positie van speler
 var spelerY = 600; // y-positie van speler
 var vijandX = 600;
@@ -42,7 +42,7 @@ var kogelVliegt = false;
 var spelerSpringt = false;
 var springSnelheid = 2;
 var springSnelheidStart = 6;
-var zwaartekracht = 0.16;
+var zwaartekracht = 0.19;
 
 /* ********************************************* */
 /* functies die je gebruikt in je game           */
@@ -76,6 +76,7 @@ if (spelerSpringt === true) {
   // vijand
 
   // kogel
+  kogelX = kogelX + 0;
 };
 
 /**
@@ -89,7 +90,8 @@ var verwerkBotsing = function() {
   
   
 
-  // update punten en health
+  // bal oppakken
+  
 
 };
 
