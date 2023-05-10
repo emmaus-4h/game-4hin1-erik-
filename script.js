@@ -35,6 +35,7 @@ var img1;           //plaatje//
 var img2;
 var img3;
 var img4;
+var img5;
 var kogelX= 400;
 var kogelY= 400;
 var kogelVliegt = false;
@@ -101,6 +102,8 @@ var verwerkBotsing = function() {
 var tekenAlles = function() {
   // achtergrond
   background('green')
+  rect(200,535,100,50)
+  rect(25, 470, 100, 50)
   image(img4)
   // vijand//
   image(img1, vijandX - 60, vijandY - 100, 110, 110);
@@ -111,7 +114,7 @@ fill("black")
     image(img2, kogelX - 25, kogelY - 25, 30, 30)
    
    if (kogelVliegt === false && 
-     keyIsDown(13)) {
+     keyIsDown(16)) {
     kogelVliegt=true;
     kogelX=spelerX;
     kogelY=spelerY;
@@ -127,11 +130,14 @@ if (kogelVliegt === true &&
   fill("white");
   
 
-  image(img3, spelerX - 65, spelerY - 85, 120, 100)
+  
+   
+     image(img3, spelerX - 65, spelerY - 85, 120, 100)
+   }
 
   // punten en health
 
-};
+
 
 /**
  * return true als het gameover is
@@ -152,10 +158,11 @@ var checkGameOver = function() {
 //preload//
 //we laden hier de plaatjes//
 function preload() {
-  img1 = loadImage('vandijk.png')
+  img1 = loadImage('voetbal.webp')
   img2 = loadImage('voetbal.webp')
   img3 = loadImage('messi.png')
   img4 = loadImage('stadion.jpeg')
+  img5 = loadImage('messi links.png')
 }
 /**
  * setup
@@ -180,6 +187,7 @@ function draw() {
     beweegAlles();
     verwerkBotsing();
     tekenAlles();
+    
     if (checkGameOver()) {
       spelStatus = GAMEOVER;
     }
