@@ -36,9 +36,14 @@ var img2;
 var img3;
 var img4;
 var img5;
+
+var balpakken 
+
 var kogelX= 400;
 var kogelY= 400;
 var kogelVliegt = false;
+var goalX = 600;
+var goalY = 400;
 
 var spelerSpringt = false;
 var springSnelheid = 2;
@@ -77,7 +82,7 @@ if (spelerSpringt === true) {
   // vijand
 
   // kogel
-  kogelX = kogelX + 0;
+
 };
 
 /**
@@ -102,9 +107,9 @@ var verwerkBotsing = function() {
 var tekenAlles = function() {
   // achtergrond
   background('green')
-  rect(200,535,100,50)
-  rect(25, 470, 100, 50)
-  image(img4)
+
+  image(img4, 0,0, 1400, 750);
+
   // vijand//
   image(img1, vijandX - 60, vijandY - 100, 110, 110);
 
@@ -135,7 +140,10 @@ if (kogelVliegt === true &&
      image(img3, spelerX - 65, spelerY - 85, 120, 100)
    }
 
-  // punten en health
+  
+  // goal
+  fill('white')
+ image(img5, goalX, goalY, 150, 150)
 
 
 
@@ -158,11 +166,12 @@ var checkGameOver = function() {
 //preload//
 //we laden hier de plaatjes//
 function preload() {
-  img1 = loadImage('voetbal.webp')
+
+  img1 = loadImage('vanDijk.png')
   img2 = loadImage('voetbal.webp')
   img3 = loadImage('messi.png')
   img4 = loadImage('stadion.jpeg')
-  img5 = loadImage('messi links.png')
+  img5 = loadImage('goal.png')
 }
 /**
  * setup
