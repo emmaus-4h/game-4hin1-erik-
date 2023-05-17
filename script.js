@@ -37,10 +37,10 @@ var img3;
 var img4;
 var img5;
 
-var balpakken 
+var balpakken
 
-var kogelX= 400;
-var kogelY= 400;
+var kogelX = 400;
+var kogelY = 400;
 var kogelVliegt = false;
 var goalX = 600;
 var goalY = 400;
@@ -60,22 +60,22 @@ var zwaartekracht = 0.19;
 var beweegAlles = function() {
   // speler
   if (keyIsDown(37))
-spelerX = spelerX -3;
+    spelerX = spelerX - 3;
   if (keyIsDown(39))
-    spelerX = spelerX +3;
+    spelerX = spelerX + 3;
   if (keyIsDown(38))
-    spelerY = spelerY -0;
+    spelerY = spelerY - 0;
   if (keyIsDown(40))
-    spelerY = spelerY +0;
+    spelerY = spelerY + 0;
   if (spelerSpringt === false && keyIsDown(32)) {
     spelerSpringt = true;
     springSnelheid = springSnelheidStart
     console.log("start sprong");
-}
-if (spelerSpringt === true) {
+  }
+  if (spelerSpringt === true) {
     spelerY = spelerY - springSnelheid;
-  springSnelheid = springSnelheid - zwaartekracht;
-}
+    springSnelheid = springSnelheid - zwaartekracht;
+  }
   if (spelerY > 610) {
     spelerSpringt = false;
   }
@@ -93,13 +93,13 @@ if (spelerSpringt === true) {
 var verwerkBotsing = function() {
   // botsing speler tegen vijand
 
-  
-  
+
+
 
   // bal oppakken
-  
 
-  
+
+
 };
 
 /**
@@ -109,43 +109,43 @@ var tekenAlles = function() {
   // achtergrond
   background('green')
 
-  image(img4, 0,0, 1400, 750);
+  image(img4, 0, 0, 1400, 750);
 
   // vijand//
   image(img1, vijandX - 60, vijandY - 100, 110, 110);
 
   // kogel
-fill("black")
+  fill("black")
 
-    image(img2, kogelX - 25, kogelY - 25, 30, 30)
-   
-   if (kogelVliegt === false && 
-     keyIsDown(16)) {
-    kogelVliegt=true;
-    kogelX=spelerX;
-    kogelY=spelerY;
+  image(img2, kogelX - 25, kogelY - 25, 30, 30)
+
+  if (kogelVliegt === false &&
+    keyIsDown(16)) {
+    kogelVliegt = true;
+    kogelX = spelerX;
+    kogelY = spelerY;
   }
   if (kogelVliegt === true) {
-  kogelY = kogelY-1;
- }
-if (kogelVliegt === true &&
-  kogelY < 0) {
-  kogelVliegt = false;
+    kogelY = kogelY - 1;
+  }
+  if (kogelVliegt === true &&
+    kogelY < 0) {
+    kogelVliegt = false;
   }
   // speler
   fill("white");
-  
 
-  
-   
-     image(img3, spelerX - 65, spelerY - 85, 120, 100)
-   }
 
-  
+
+
+  image(img3, spelerX - 65, spelerY - 85, 120, 100)
+
+
+
   // goal
   fill('white')
- image(img5, goalX, goalY, 150, 150)
-
+  image(img5, goalX, goalY, 150, 150)
+}
 
 
 /**
@@ -153,11 +153,11 @@ if (kogelVliegt === true &&
  * anders return false
  */
 var checkGameOver = function() {
-  if (spelerX - vijandX <50 && 
-    spelerX - vijandX >-50 &&
-    spelerY - vijandY <50 &&
-    spelerY - vijandY >-50) {
-  console.log("Botsing");
+  if (spelerX - vijandX < 50 &&
+    spelerX - vijandX > -50 &&
+    spelerY - vijandY < 50 &&
+    spelerY - vijandY > -50) {
+    console.log("Botsing");
     return true;
   }
   // check of HP 0 is , of tijd op is, of ...
@@ -197,7 +197,7 @@ function draw() {
     beweegAlles();
     verwerkBotsing();
     tekenAlles();
-    
+
     if (checkGameOver()) {
       spelStatus = GAMEOVER;
     }
@@ -208,14 +208,14 @@ function draw() {
     console.log("Game-over")
     textSize(50);
     fill("white")
-    text("game over, druk enter voor start",100,100 )
+    text("game over, druk enter voor start", 100, 100)
     if (keyIsDown(13))
-      spelerY=600;
-    
-    
-    
-      spelStatus = SPELEN;
+      spelerY = 600;
+
+
+
+    spelStatus = SPELEN;
 
   }
-  
+
 }
