@@ -212,8 +212,9 @@ function draw() {
       spelerY=600;
     
     
+    
       spelStatus = SPELEN;
 
   }
-  
+  if (s)
 }
