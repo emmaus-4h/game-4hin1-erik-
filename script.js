@@ -31,6 +31,8 @@ var spelerX = 600; // x-positie van speler
 var spelerY = 600; // y-positie van speler
 var vijandX = 600;
 var vijandY = 500;
+var rect1X = 200;
+var rect1Y = 520;
 var img1;           //plaatje//
 var img2;
 var img3;
@@ -79,6 +81,14 @@ var beweegAlles = function() {
   if (spelerY > 610) {
     spelerSpringt = false;
   }
+
+  if (spelerX - rect1X < 50 &&
+    spelerX - rect1X > -50 &&
+    spelerY - rect1Y < 50 &&
+    spelerY - rectY > -50) {
+    console.log("Botsing");
+  }
+    
   // vijand
 
   // kogel
@@ -110,6 +120,11 @@ var tekenAlles = function() {
   background('green')
 
   image(img4, 0, 0, 1400, 750);
+
+  rect (rect1X, rect1Y,200,50)
+  rect (500,400,200,50)
+  rect (300,320,200,50)
+  
 
   // vijand//
   image(img1, vijandX - 60, vijandY - 100, 110, 110);
