@@ -99,6 +99,7 @@ var verwerkBotsing = function() {
   // bal oppakken
   
 
+  
 };
 
 /**
@@ -216,5 +217,5 @@ function draw() {
       spelStatus = SPELEN;
 
   }
-  if (s)
+  
 }
