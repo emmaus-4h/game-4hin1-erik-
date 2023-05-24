@@ -27,7 +27,7 @@ const KEY_UP = 38;
 const KEY_DOWN = 40;
 const KEY_SPACE = 32;
 const KEY_ENTER = 13
-var spelerX = 600; // x-positie van speler
+var spelerX = 400; // x-positie van speler
 var spelerY = 600; // y-positie van speler
 var vijandX = 600;
 var vijandY = 500;
@@ -38,7 +38,7 @@ var img2;
 var img3;
 var img4;
 var img5;
-var img6; 
+var img6;
 var img7;
 
 var balpakken
@@ -52,7 +52,7 @@ var goalY = 400;
 var spelerSpringt = false;
 var springSnelheid = 2;
 var springSnelheidStart = 6;
-var zwaartekracht = 0.19;
+var zwaartekracht = 0.15;
 
 /* ********************************************* */
 /* functies die je gebruikt in je game           */
@@ -90,7 +90,7 @@ var beweegAlles = function() {
     spelerY - rect1Y > -50) {
     console.log("Botsing");
   }
-    
+
   // vijand
 
   // kogel
@@ -123,10 +123,10 @@ var tekenAlles = function() {
 
   image(img4, 0, 0, 1400, 750);
 
-  rect (rect1X, rect1Y,200,50)
-  rect (500,400,200,50)
-  rect (300,320,200,50)
-  
+  rect(rect1X, rect1Y, 200, 50)
+  rect(500, 400, 200, 50)
+  rect(300, 320, 200, 50)
+
 
   // vijand//
   image(img1, vijandX - 60, vijandY - 100, 110, 110);
@@ -137,26 +137,31 @@ var tekenAlles = function() {
   image(img2, kogelX - 25, kogelY - 25, 30, 30)
 
   if (kogelVliegt === false &&
-    keyIsDown(16)) {
+    keyIsDown(13)) {
     kogelVliegt = true;
     kogelX = spelerX;
     kogelY = spelerY;
   }
   if (kogelVliegt === true) {
-    kogelY = kogelY - 1;
+    kogelX = kogelX + 9;
   }
   if (kogelVliegt === true &&
-    kogelY < 0) {
+    kogelX < 0 ) {
     kogelVliegt = false;
   }
-  // speler
+    if (kogelVliegt === true &&
+    kogelX > 1300 ) {
+    kogelVliegt = false;
+  }
+
+    // speler
   fill("white");
 
 
-image(img7, spelerX - 65, spelerY - 85, 120, 100)
-  if (keyIsDown(39,37)) 
-  if (keyIsDown(39)) image(img3, spelerX - 65, spelerY - 85, 120, 100)
-if (keyIsDown(37)) image(img6, spelerX - 65, spelerY -85, 120, 100)
+  image(img7, spelerX - 65, spelerY - 85, 120, 100)
+  if (keyIsDown(39, 37))
+    if (keyIsDown(39)) image(img3, spelerX - 65, spelerY - 85, 120, 100)
+  if (keyIsDown(37)) image(img6, spelerX - 65, spelerY - 85, 120, 100)
 
 
   // goal
@@ -190,8 +195,8 @@ function preload() {
   img3 = loadImage('messi.png')
   img4 = loadImage('stadion.jpeg')
   img5 = loadImage('goal.png')
-  img6 = loadImage ('messi links.png')
-  img7 = loadImage ('17messi.png')
+  img6 = loadImage('messi links.png')
+  img7 = loadImage('17messi.png')
 }
 /**
  * setup
@@ -228,13 +233,10 @@ function draw() {
     textSize(50);
     fill("white")
     text("game over, druk enter voor start", 100, 100)
-    if (keyIsDown(13))
+    if (keyIsDown(13)) {
       spelerY = 600;
-
-
-
-    spelStatus = SPELEN;
-
+      spelStatus = SPELEN;
+    }
   }
 
 }
