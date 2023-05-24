@@ -38,6 +38,7 @@ var img2;
 var img3;
 var img4;
 var img5;
+var img6; 
 
 var balpakken
 
@@ -85,7 +86,7 @@ var beweegAlles = function() {
   if (spelerX - rect1X < 50 &&
     spelerX - rect1X > -50 &&
     spelerY - rect1Y < 50 &&
-    spelerY - rectY > -50) {
+    spelerY - rect1Y > -50) {
     console.log("Botsing");
   }
     
@@ -188,6 +189,7 @@ function preload() {
   img3 = loadImage('messi.png')
   img4 = loadImage('stadion.jpeg')
   img5 = loadImage('goal.png')
+  img6 = loadImage ('messi links.png')
 }
 /**
  * setup
