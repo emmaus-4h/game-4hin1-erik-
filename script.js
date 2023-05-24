@@ -39,6 +39,7 @@ var img3;
 var img4;
 var img5;
 var img6; 
+var img7;
 
 var balpakken
 
@@ -152,10 +153,10 @@ var tekenAlles = function() {
   fill("white");
 
 
-
-
-  image(img3, spelerX - 65, spelerY - 85, 120, 100)
-
+image(img7, spelerX - 65, spelerY - 85, 120, 100)
+  if (keyIsDown(39,37)) 
+  if (keyIsDown(39)) image(img3, spelerX - 65, spelerY - 85, 120, 100)
+if (keyIsDown(37)) image(img6, spelerX - 65, spelerY -85, 120, 100)
 
 
   // goal
@@ -190,6 +191,7 @@ function preload() {
   img4 = loadImage('stadion.jpeg')
   img5 = loadImage('goal.png')
   img6 = loadImage ('messi links.png')
+  img7 = loadImage ('17messi.png')
 }
 /**
  * setup
