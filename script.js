@@ -41,6 +41,7 @@ var img5;
 var img6;
 var img7;
 
+
 var balpakken
 
 var kogelX = 400;
@@ -91,6 +92,19 @@ var beweegAlles = function() {
     console.log("Botsing");
   }
 
+
+  // interactie met blokken
+  // als speler in bovenste helft van blok zit, dan
+  // stop met springen
+  // als speler niet aan het springen is en niet op een blok staat, dan
+  // begin met vallen (dat is hetzelfde als begin met springen met springSnelheid =0)
+
+  // doe sit voor 1 blok, met getallen
+  // verander de code dan zodat hi werkt met veraiablen ipv getaklklen
+// kopier codoe zodayt hij werkt voor 2 blokkken, maet andere inhoud vand evarianelne
+  // maak array in plaats van verschielldne variabelene (begin met video kijken, 1e video bij T3)
+  
+
   // vijand
 
   // kogel
@@ -123,9 +137,12 @@ var tekenAlles = function() {
 
   image(img4, 0, 0, 1400, 750);
 
-  rect(rect1X, rect1Y, 200, 50)
-  rect(500, 400, 200, 50)
-  rect(300, 320, 200, 50)
+
+  rect (rect1X, rect1Y,200,50)
+  rect (500,400, 200,50)
+  rect (300,320, 200,50)
+  rect (100, 200, 200, 50)
+  
 
 
   // vijand//
@@ -237,6 +254,7 @@ function draw() {
       spelerY = 600;
       spelStatus = SPELEN;
     }
+
   }
 
 }
