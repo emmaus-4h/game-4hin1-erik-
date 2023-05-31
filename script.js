@@ -40,6 +40,7 @@ var img4;
 var img5;
 var img6;
 var img7;
+var img8;
 
 
 var balpakken
@@ -86,15 +87,28 @@ var beweegAlles = function() {
     spelerSpringt = false;
   }
 
-  if (spelerX - rect1X < 50 &&
-    spelerX - rect1X > -50 &&
-    spelerY - rect1Y < 50 &&
-    spelerY - rect1Y > -50) {
-    console.log("Botsing");
-  }
+
+
 
 
   // interactie met blokken
+  // val als je niet op het blok staat
+  if (spelerX > rect1X && spelerX < rect1X+200) {
+    springSnelheid = 0;
+  }
+  // stop met springen en vallen als speler i bovenste helft van blok is
+  if (spelerY >= rect1Y && spelerY <= rect1Y+25) {
+    springSnelheid = 0;
+    spelerY = rect1Y;
+
+  }
+
+
+
+
+
+
+
   // als speler in bovenste helft van blok zit, dan
   // stop met springen
   // als speler niet aan het springen is en niet op een blok staat, dan
@@ -102,9 +116,9 @@ var beweegAlles = function() {
 
   // doe sit voor 1 blok, met getallen
   // verander de code dan zodat hi werkt met veraiablen ipv getaklklen
-// kopier codoe zodayt hij werkt voor 2 blokkken, maet andere inhoud vand evarianelne
+  // kopier codoe zodayt hij werkt voor 2 blokkken, maet andere inhoud vand evarianelne
   // maak array in plaats van verschielldne variabelene (begin met video kijken, 1e video bij T3)
-  
+
 
   // vijand
 
@@ -139,11 +153,11 @@ var tekenAlles = function() {
   image(img4, 0, 0, 1400, 750);
 
 
-  rect (rect1X, rect1Y,200,50)
-  rect (500,400, 200,50)
-  rect (300,320, 200,50)
-  rect (100, 200, 200, 50)
-  
+  rect(rect1X, rect1Y, 200, 50)
+  rect(500, 400, 200, 50)
+  rect(300, 320, 200, 50)
+  rect(100, 200, 200, 50)
+
 
 
   // vijand//
@@ -172,21 +186,22 @@ var tekenAlles = function() {
     kogelX = kogelX + kogelSnelheid;
   }
   if (kogelVliegt === true &&
-    kogelX < 0 ) {
+    kogelX < 0) {
     kogelVliegt = false;
   }
-    if (kogelVliegt === true &&
-    kogelX > 1300 ) {
+  if (kogelVliegt === true &&
+    kogelX > 1300) {
     kogelVliegt = false;
   }
 
-    // speler
+  // speler
   fill("white");
 
+  if (keyIsPressed === false) image(img7, spelerX - 65, spelerY - 85, 120, 100)
 
-  image(img7, spelerX - 65, spelerY - 85, 120, 100)
-  if (keyIsDown(39, 37))
-    if (keyIsDown(39)) image(img3, spelerX - 65, spelerY - 85, 120, 100)
+
+
+  if (keyIsDown(39)) image(img3, spelerX - 65, spelerY - 85, 120, 100)
   if (keyIsDown(37)) image(img6, spelerX - 65, spelerY - 85, 120, 100)
 
 
@@ -223,6 +238,7 @@ function preload() {
   img5 = loadImage('goal.png')
   img6 = loadImage('messi links.png')
   img7 = loadImage('17messi.png')
+  img8 = loadImage('messispringt.png')
 }
 /**
  * setup
