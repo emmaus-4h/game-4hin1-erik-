@@ -46,6 +46,7 @@ var balpakken
 
 var kogelX = 400;
 var kogelY = 400;
+var kogelSnelheid = 0;
 var kogelVliegt = false;
 var goalX = 600;
 var goalY = 400;
@@ -154,13 +155,21 @@ var tekenAlles = function() {
   image(img2, kogelX - 25, kogelY - 25, 30, 30)
 
   if (kogelVliegt === false &&
-    keyIsDown(13)) {
+    keyIsDown(13) && keyIsDown(39) ) { // rechts en enter
     kogelVliegt = true;
     kogelX = spelerX;
     kogelY = spelerY;
+    kogelSnelheid = 8;
   }
-  if (kogelVliegt === true) {
-    kogelX = kogelX + 9;
+  if (kogelVliegt === false &&
+    keyIsDown(13) && keyIsDown(37) ) { // links en enter
+    kogelVliegt = true;
+    kogelX = spelerX;
+    kogelY = spelerY;
+    kogelSnelheid = -8;
+  }
+  if (kogelVliegt === true){
+    kogelX = kogelX + kogelSnelheid;
   }
   if (kogelVliegt === true &&
     kogelX < 0 ) {
