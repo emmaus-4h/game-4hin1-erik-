@@ -33,6 +33,14 @@ var vijandX = 600;
 var vijandY = 500;
 var rect1X = 200;
 var rect1Y = 520;
+var rect2X = 500;
+var rect2Y= 400;
+var rect3X = 300;
+var rect3Y = 320;
+var rect4X = 100
+var rect4Y =200
+var rectW = 200;
+var rectH = 50;
 var img1;           //plaatje//
 var img2;
 var img3;
@@ -93,14 +101,55 @@ var beweegAlles = function() {
 
   // interactie met blokken
   // val als je niet op het blok staat
-  if (spelerX > rect1X && spelerX < rect1X+200) {
+  if (spelerX > rect1X && spelerX < rect1X+rectW) {
     springSnelheid = 0;
   }
   // stop met springen en vallen als speler i bovenste helft van blok is
-  if (spelerY >= rect1Y && spelerY <= rect1Y+25) {
+  if (spelerY >= rect1Y && spelerY <= rect1Y+rectH) {
     springSnelheid = 0;
-    spelerY = rect1Y;
+    
+    spelerY=rect1Y;
 
+  }
+  if (spelerX > rect1X && spelerX < rect1X+rectW) {
+    spelerSpringt = false;
+    
+  }
+  if (spelerX > rect2X && spelerX < rect2X+rectW) {
+    springSnelheid = 0;
+  }
+  
+  if (spelerY >= rect2Y && spelerY <= rect2Y+rectH) {
+    springSnelheid = 0;
+    spelerY=rect2Y;
+  }
+  if (spelerX > rect2X && spelerX < rect2X+rectW) {
+    spelerSpringt = false;
+    
+  }
+    if (spelerX > rect3X && spelerX < rect3X+rectW) {
+    springSnelheid = 0;
+  }
+  
+  if (spelerY >= rect3Y && spelerY <= rect3Y+rectH) {
+    springSnelheid = 0;
+    spelerY=rect3Y;
+  }
+  if (spelerX > rect3X && spelerX < rect3X+rectW) {
+    spelerSpringt = false;
+    
+  }
+   if (spelerX > rect4X && spelerX < rect4X+rectW) {
+    springSnelheid = 0;
+  }
+  
+  if (spelerY >= rect4Y && spelerY <= rect4Y+rectH) {
+    springSnelheid = 0;
+    spelerY=rect4Y;
+  }
+  if (spelerX > rect4X && spelerX < rect4X+rectW) {
+    spelerSpringt = false;
+     
   }
 
 
@@ -153,10 +202,10 @@ var tekenAlles = function() {
   image(img4, 0, 0, 1400, 750);
 
 
-  rect(rect1X, rect1Y, 200, 50)
-  rect(500, 400, 200, 50)
-  rect(300, 320, 200, 50)
-  rect(100, 200, 200, 50)
+  rect(rect1X, rect1Y, rectW, rectH)
+  rect(rect2X, rect2Y, rectW, rectH)
+  rect(rect3X, rect3Y, rectW, rectH)
+  rect(rect4X, rect4Y, rectW, rectH)
 
 
 
@@ -231,14 +280,14 @@ var checkGameOver = function() {
 //we laden hier de plaatjes//
 function preload() {
 
-  img1 = loadImage('vanDijk.png')
-  img2 = loadImage('voetbal.webp')
-  img3 = loadImage('messi.png')
-  img4 = loadImage('stadion.jpeg')
-  img5 = loadImage('goal.png')
-  img6 = loadImage('messi links.png')
-  img7 = loadImage('17messi.png')
-  img8 = loadImage('messispringt.png')
+  img1 = loadImage('afbeeldingen/vanDijk.png')
+  img2 = loadImage('afbeeldingen/voetbal.webp')
+  img3 = loadImage('afbeeldingen/messi.png')
+  img4 = loadImage('afbeeldingen/stadion.jpeg')
+  img5 = loadImage('afbeeldingen/goal.png')
+  img6 = loadImage('afbeeldingen/messi links.png')
+  img7 = loadImage('afbeeldingen/17messi.png')
+  img8 = loadImage('afbeeldingen/messispringt.png')
 }
 /**
  * setup
