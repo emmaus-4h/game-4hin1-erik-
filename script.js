@@ -34,11 +34,11 @@ var vijandY = 500;
 var rect1X = 200;
 var rect1Y = 520;
 var rect2X = 500;
-var rect2Y= 400;
+var rect2Y = 400;
 var rect3X = 300;
 var rect3Y = 320;
 var rect4X = 100
-var rect4Y =200
+var rect4Y = 200
 var rectW = 200;
 var rectH = 50;
 var img1;           //plaatje//
@@ -91,9 +91,7 @@ var beweegAlles = function() {
     spelerY = spelerY - springSnelheid;
     springSnelheid = springSnelheid - zwaartekracht;
   }
-  if (spelerY > 610) {
-    spelerSpringt = false;
-  }
+
 
 
 
@@ -101,56 +99,60 @@ var beweegAlles = function() {
 
   // interactie met blokken
   // val als je niet op het blok staat
-  if (spelerX > rect1X && spelerX < rect1X+rectW) {
+  if (spelerX > rect1X && spelerX < rect1X + rectW) {
     springSnelheid = 0;
-  }
-  // stop met springen en vallen als speler i bovenste helft van blok is
-  if (spelerY >= rect1Y && spelerY <= rect1Y+rectH) {
-    springSnelheid = 0;
-    
-    spelerY=rect1Y;
 
   }
-  if (spelerX > rect1X && spelerX < rect1X+rectW) {
+  // stop met springen en vallen als speler i bovenste helft van blok is
+  if (spelerY >= rect1Y && spelerY <= rect1Y + rectH) {
+    springSnelheid = 0;
+    spelerY = rect1Y;
+  }
+
+
+
+  if (spelerX > rect1X && spelerX < rect1X + rectW) {
     spelerSpringt = false;
-    
   }
-  if (spelerX > rect2X && spelerX < rect2X+rectW) {
-    springSnelheid = 0;
-  }
-  
-  if (spelerY >= rect2Y && spelerY <= rect2Y+rectH) {
-    springSnelheid = 0;
-    spelerY=rect2Y;
-  }
-  if (spelerX > rect2X && spelerX < rect2X+rectW) {
+  if (spelerY > rect1Y && spelerY < rect1Y + rectH) {
     spelerSpringt = false;
-    
   }
-    if (spelerX > rect3X && spelerX < rect3X+rectW) {
+
+
+  //code 2de blok
+
+  if (spelerX > rect2X && spelerX < rect2X + rectW) {
     springSnelheid = 0;
+
   }
-  
-  if (spelerY >= rect3Y && spelerY <= rect3Y+rectH) {
+
+  if (spelerY >= rect2Y && spelerY <= rect2Y + rectH) {
     springSnelheid = 0;
-    spelerY=rect3Y;
+    spelerY = rect2Y;
   }
-  if (spelerX > rect3X && spelerX < rect3X+rectW) {
+  if (spelerX > rect2X && spelerX < rect2X + rectW) {
     spelerSpringt = false;
-    
   }
-   if (spelerX > rect4X && spelerX < rect4X+rectW) {
-    springSnelheid = 0;
-  }
-  
-  if (spelerY >= rect4Y && spelerY <= rect4Y+rectH) {
-    springSnelheid = 0;
-    spelerY=rect4Y;
-  }
-  if (spelerX > rect4X && spelerX < rect4X+rectW) {
+  if (spelerY > rect2Y && spelerY < rect2Y + rectH) {
     spelerSpringt = false;
-     
   }
+  // code 3de blok
+  if (spelerX > rect3X && spelerX < rect3X + rectW) {
+    springSnelheid = 0;
+
+  }
+
+  if (spelerY >= rect3Y && spelerY <= rect3Y + rectH) {
+    springSnelheid = 0;
+    spelerY = rect3Y;
+  }
+  if (spelerX > rect3X && spelerX < rect3X + rectW) {
+    spelerSpringt = false;
+  }
+  if (spelerY > rect3Y && spelerY < rect3Y + rectH) {
+    spelerSpringt = false;
+  }
+
 
 
 
@@ -218,20 +220,20 @@ var tekenAlles = function() {
   image(img2, kogelX - 25, kogelY - 25, 30, 30)
 
   if (kogelVliegt === false &&
-    keyIsDown(13) && keyIsDown(39) ) { // rechts en enter
+    keyIsDown(13) && keyIsDown(39)) { // rechts en enter
     kogelVliegt = true;
     kogelX = spelerX;
     kogelY = spelerY;
     kogelSnelheid = 8;
   }
   if (kogelVliegt === false &&
-    keyIsDown(13) && keyIsDown(37) ) { // links en enter
+    keyIsDown(13) && keyIsDown(37)) { // links en enter
     kogelVliegt = true;
     kogelX = spelerX;
     kogelY = spelerY;
     kogelSnelheid = -8;
   }
-  if (kogelVliegt === true){
+  if (kogelVliegt === true) {
     kogelX = kogelX + kogelSnelheid;
   }
   if (kogelVliegt === true &&
