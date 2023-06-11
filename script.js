@@ -158,7 +158,22 @@ var beweegAlles = function() {
   if (spelerY > rect3Y && spelerY < rect3Y + rectH) {
     spelerSpringt = false;
   }
+//code 4de blok 
+  if (spelerX > rect4X && spelerX < rect4X + rectW) {
+    springSnelheid = 0;
 
+  }
+
+  if (spelerY >= rect4Y && spelerY <= rect4Y + rectH) {
+    springSnelheid = 0;
+    spelerY = rect4Y;
+  }
+  if (spelerX > rect4X && spelerX < rect4X + rectW) {
+    spelerSpringt = false;
+  }
+  if (spelerY > rect4Y && spelerY < rect4Y + rectH) {
+    spelerSpringt = false;
+  }
 
 
 
