@@ -27,10 +27,10 @@ const KEY_UP = 38;
 const KEY_DOWN = 40;
 const KEY_SPACE = 32;
 const KEY_ENTER = 13
-var spelerX = 400; // x-positie van speler
+var spelerX = 800; // x-positie van speler
 var spelerY = 600; // y-positie van speler
-var vijandX = 600;
-var vijandY = 500;
+var vijandX = 300;
+var vijandY = 600;
 var rect1X = 200;
 var rect1Y = 520;
 var rect2X = 500;
@@ -41,6 +41,7 @@ var rect4X = 100
 var rect4Y = 200
 var rectW = 200;
 var rectH = 50;
+
 var img1;           //plaatje//
 var img2;
 var img3;
@@ -48,17 +49,16 @@ var img4;
 var img5;
 var img6;
 var img7;
-var img8;
 
 
 var balpakken
 
-var kogelX = 400;
+var kogelX = 4000;
 var kogelY = 400;
 var kogelSnelheid = 0;
 var kogelVliegt = false;
-var goalX = 600;
-var goalY = 400;
+var goalX = 100;
+var goalY = 550;
 
 var spelerSpringt = false;
 var springSnelheid = 2;
@@ -93,11 +93,17 @@ var beweegAlles = function() {
   }
 
 
-
+  if (spelerX - rect1X < 50 &&
+    spelerX - rect1X > -50 &&
+    spelerY - rect1Y < 50 &&
+    spelerY - rect1Y > -50) {
+    console.log("Botsing");
+  }
 
 
 
   // interactie met blokken
+
   // val als je niet op het blok staat
   if (spelerX > rect1X && spelerX < rect1X + rectW) {
     springSnelheid = 0;
@@ -160,6 +166,7 @@ var beweegAlles = function() {
 
 
 
+
   // als speler in bovenste helft van blok zit, dan
   // stop met springen
   // als speler niet aan het springen is en niet op een blok staat, dan
@@ -172,7 +179,7 @@ var beweegAlles = function() {
 
 
   // vijand
-
+vijandX = vijandX + 3
   // kogel
 
 };
@@ -216,7 +223,7 @@ var tekenAlles = function() {
 
   // kogel
   fill("black")
-
+ellipse(kogelX, kogelY, 50, 50)
   image(img2, kogelX - 25, kogelY - 25, 30, 30)
 
   if (kogelVliegt === false &&
@@ -224,14 +231,14 @@ var tekenAlles = function() {
     kogelVliegt = true;
     kogelX = spelerX;
     kogelY = spelerY;
-    kogelSnelheid = 8;
+    kogelSnelheid = 9;
   }
   if (kogelVliegt === false &&
     keyIsDown(13) && keyIsDown(37)) { // links en enter
     kogelVliegt = true;
     kogelX = spelerX;
     kogelY = spelerY;
-    kogelSnelheid = -8;
+    kogelSnelheid = -9;
   }
   if (kogelVliegt === true) {
     kogelX = kogelX + kogelSnelheid;
@@ -248,17 +255,17 @@ var tekenAlles = function() {
   // speler
   fill("white");
 
-  if (keyIsPressed === false) image(img7, spelerX - 65, spelerY - 85, 120, 100)
 
-
-
-  if (keyIsDown(39)) image(img3, spelerX - 65, spelerY - 85, 120, 100)
+  image(img7, spelerX - 65, spelerY - 85, 120, 100)
+ if (keyIsPressed === false) image (img7, spelerX - 65, spelerY - 85, 120, 100)
+    if (keyIsDown(39)) image(img3, spelerX - 65, spelerY - 85, 120, 100)
   if (keyIsDown(37)) image(img6, spelerX - 65, spelerY - 85, 120, 100)
 
 
   // goal
   fill('white')
-  image(img5, goalX, goalY, 150, 150)
+  ellipse(goalX, goalY, 50, 50)
+  image(img5, goalX - 50, goalY - 50, 150, 150)
 }
 
 
@@ -272,24 +279,30 @@ var checkGameOver = function() {
     spelerY - vijandY < 50 &&
     spelerY - vijandY > -50) {
     console.log("Botsing");
-    return true;
+    return true;}
+
+  if (kogelX - goalX < 50 &&
+      kogelX - goalX > -50 &&
+      kogelY - goalY < 60 &&
+      kogelY - goalY > -60) {
+      console.log("botsing");
+      return true;
   }
+  };
   // check of HP 0 is , of tijd op is, of ...
-  return false;
-};
+
 
 //preload//
 //we laden hier de plaatjes//
 function preload() {
 
-  img1 = loadImage('afbeeldingen/vanDijk.png')
-  img2 = loadImage('afbeeldingen/voetbal.webp')
-  img3 = loadImage('afbeeldingen/messi.png')
-  img4 = loadImage('afbeeldingen/stadion.jpeg')
-  img5 = loadImage('afbeeldingen/goal.png')
-  img6 = loadImage('afbeeldingen/messi links.png')
-  img7 = loadImage('afbeeldingen/17messi.png')
-  img8 = loadImage('afbeeldingen/messispringt.png')
+  img1 = loadImage('vanDijk.png')
+  img2 = loadImage('voetbal.webp')
+  img3 = loadImage('messi.png')
+  img4 = loadImage('stadion.jpeg')
+  img5 = loadImage('goal.png')
+  img6 = loadImage('messi links.png')
+  img7 = loadImage('17messi.png')
 }
 /**
  * setup
@@ -328,6 +341,7 @@ function draw() {
     text("game over, druk enter voor start", 100, 100)
     if (keyIsDown(13)) {
       spelerY = 600;
+      
       spelStatus = SPELEN;
     }
 
